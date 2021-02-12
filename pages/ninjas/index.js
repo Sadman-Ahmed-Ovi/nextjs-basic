@@ -1,5 +1,6 @@
 import styles from '../../styles/Ninjas.module.css';
-import Link from 'next/link'
+import Link from 'next/link';
+import Head from 'next/head'
 
 export const getStaticProps=async ()=>{
     const res= await fetch('https://jsonplaceholder.typicode.com/users');
@@ -14,6 +15,10 @@ export const getStaticProps=async ()=>{
 
 const index = ({ninjas}) => {
     return (
+       <> 
+        <Head>
+           <title>Listing</title>
+         </Head>
         <div>
             <h1>list</h1>
             {ninjas.map((n)=>(
@@ -22,6 +27,7 @@ const index = ({ninjas}) => {
                 </Link>
             ))}
         </div>
+      </>  
     );
 };
 
